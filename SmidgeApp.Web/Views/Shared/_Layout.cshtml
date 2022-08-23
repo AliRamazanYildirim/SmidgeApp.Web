@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SmidgeApp.Web</title>
     
+    @*<environment names="Development">
+        <link rel="stylesheet" href="mein-css-bundle" debug="true" />
+    </environment>
+    <environment names="Production">
+        <link rel="stylesheet" href="mein-css-bundle" />
+    </environment>*@
+
     <link rel="stylesheet" href="mein-css-bundle" debug="true" />
 </head>
 <body>
@@ -40,14 +47,15 @@
             &copy; 2022 - SmidgeApp.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    
-    <environment names="Development">
+    @*Wenn man so wie unten geschrieben schreibt, soll man nicht bei program.cs 'BundleEnvironmentOptions' verwenden. *@
+    @*<environment names="Development">
         <script src="mein-js-bundle" debug="true"></script>
     </environment>
-    <environment names="Production">
+    <environment names="Staging,Production">
         <script src="mein-js-bundle"></script>
-    </environment>
+    </environment>*@
     
+    <script src="mein-js-bundle" debug="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
