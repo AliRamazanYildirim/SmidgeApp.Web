@@ -41,8 +41,13 @@
         </div>
     </footer>
     
-
-    <script src="mein-js-bundle" debug="true"></script>
+    <environment names="Development">
+        <script src="mein-js-bundle" debug="true"></script>
+    </environment>
+    <environment names="Production">
+        <script src="mein-js-bundle"></script>
+    </environment>
+    
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
